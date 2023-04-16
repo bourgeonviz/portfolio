@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trees Count! Zip Code 10002</title>
+	<link href='https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap' rel="stylesheet">
+	<link href="'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap' rel="stylesheet">
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://unpkg.com/intersection-observer"></script>
+	<script src="https://unpkg.com/scrollama"></script>
+	<style type="text/css"> 
+  div.nospaces {
+      margin: 0;
+      display: inline-block;
+      float: left;
+  }
+</style>
+</head>
+<style type="text/css">
+	body, html {
+		top:0;
+		left:0;
+		margin:0;
+		font-family:'Roboto', sans-serif;
+	}
+	nav	{
+		background-color:white;
+		position:fixed;
+		width:100%;
+		display:flex;
+		justify-content: center;
+		align-items:center;
+		border-bottom:0.05em #8CC63F;
+		z-index:100;
+	}
+
+	.title {
+		height:20vh;
+		color:white;
+		background-color:#8CC63F;
+/*		background-image:url('https://i.pinimg.com/originals/7f/43/1c/7f431c9e6991b1a83d79e359dc09c99d.gif');*/
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: left top;
+		background-size: auto 100%;
+	}
+	.title h1 {
+		font-size:5em;
+	}
+	.title h2 {
+		font-size:1em;
+		font-weight:300;
+	}
+	.header {
+		text-align:center;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		border:0.5em #8CC63F;
+		padding:5% 0%;
+		animation: fadeIn 0.5s ease-in-out;
+	}
+	.header h1{
+		font-family: 'Roboto', sans-serif;
+		font-weight:700;
+		margin:0;
+	}
+	.header h2 {
+		margin:0;
+	}
+	.sticky {
+		float:right;
+		top:25%;
+		position:sticky;
+		width:50%;
+		display:inline-flex;
+					background-color:white;
+	}
+	.leftside{
+		background-color:#8CC63F;
+		color:white;
+		width: 30%;
+    	padding: 5% 10% 5% 5%;
+	}
+	.progressive{
+		width:100%;
+		display:block;
+		margin-bottom:100%!important;
+	}
+	.end {
+		margin-bottom:5%!important;
+	}
+	#counter {
+		width:100%;
+		font-size:10em;
+		text-align:center;
+		margin:0;
+		padding:0%;
+		line-height:1em;
+		font-weight: 800;
+    	letter-spacing: -0.05em;
+	}
+	#counter h2{
+		text-align:center;
+	}
+	.text {
+		margin:5%;
+		line-height:2em;
+		opacity:0;
+		margin-top:10%;
+		transition:0.5s ease-in-out;
+	}
+	.text h1 {
+		font-size:3em;
+		letter-spacing:-0.02em;
+		line-height:1em;
+		font-weight:700;
+		width:90%;
+		color:#8CC63F;
+	}
+	.text h2 {
+		font-weight:300;
+		font-size:1em;
+		font-style:italic;
+	}
+	.sticky h1 {
+		width:100%;
+		font-size:3em;
+	}
+	.sticky h2 {
+		font-size:0.8em;
+		text-transform:uppercase;
+		letter-spacing:0.1em;
+	}
+	.center_aligner {
+		overflow:none;
+		width:100%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		margin:0% 0%;
+	}
+	iframe {
+		width:1000px;
+		height:600px;
+		display: block;
+	}
+	.tableauPlaceholder{
+		width:100%;
+		z-index:0;
+	}
+	img {
+		text-align:center;
+		margin:0%;
+		display:inline-block;
+	}
+	.caption {
+		font-size:0.8em;
+		color:#666666;
+	}
+	.small {
+		width:10%;
+	}
+	.large {
+		width:100%;
+		display:block;
+	}
+	@keyframes fadeIn {
+		0%{
+			opacity:0;
+		}
+		100%{
+			opacity:1;
+		}
+	}
+	@media screen and (max-width:1000px){
+		.sticky {
+	/*		bottom:0;*/
+			width:0%;
+			float:none;
+			margin:auto;
+			display:flex;
+			line-height:2em;
+		}
+		.sticky h1 {
+			font-size:2em;
+			line-height:2em;
+		}
+		.sticky h2 {
+			font-size:0.5em;
+		}
+		#counter {
+			font-size:5em;
+		}
+		.leftside {
+			width: 85%;
+    		padding: 5% 5% 5% 5%;
+		}
+		.small {
+			width:80%;
+		}
+		.title {
+			height:80vh;
+		}
+		.text h1 {
+			font-size:2em;
+			width:80%;
+		}
+		.text {
+			margin:10% 5%;
+		}
+		iframe {
+			height:200px;
+		}
+
+	}
+</style>
+<body>
+
+<!-- nav -->
+<nav>
+	<h3></h3>
+</nav>
+
+<!-- text -->
+<div class='header title step'>
+	<div class='aligner'>
+		<h1>Trees Count!</h1>
+		<h2><b>NYC Parks Department Tree Census</b></h2>	
+		<h2><b>Zip Code 10002</b></h2>
+</div>
+</div>
+
+<div class='text'>
+	<h1>What are street trees and why do they matter?</h1>
+	According to the <i>The State of the NYC Urban Forest</i> 2022 report, as of 2017 there were at least seven million trees in NYC - of which over 650,000 are street trees - defined as trees located in public right-of-ways. It is projected that in NYC there is space to increase the total number of street trees to 900,000. Street trees provide a range of positive benefits to the community including cleaner air, shade, and the greening of the urban landscape. Every 10 years, the NYC Parks Department counts all of the street trees in the city. The decennial <i>Trees Count!</i> census brings together NYC Parks staff, Trees Count staff, and Volunteers to count every street tree in NYC. The focus of this analysis is on the results from the <i>Trees Count!</i> census from 2005 and 2015 in zip code 10002 on the Lower East Side (LES) in Manhattan. 
+	
+	<h1>What are the most common street tree species on the Lower East Side?</h1>
+  There are 168 species of street trees in NYC of which 70 were found in zip code 10002 during the 2015 census. London Planetree are the most prevalent street tree species in NYC vs zip code 10002 (13.34% vs 17.97%) followed by Honeylocust (9.85% vs 15.01%), and Callery Pear (9.04% vs 7.87%). In zip code 10002, Ginkgo trees were the third most frequent at 8.52% vs 3.22% in NYC as a whole. Sophora trees were introduced to the LES after the 2005 census and are now amongst the top ten species in the area.
+
+	
+
+<!-- tableau public -->
+<div class='center_aligner'>
+	<!-- insert tableau public embed link below this line -->
+	<div class='tableauPlaceholder' id='viz1670551405624' style='position: relative'><noscript><a href='#'><img alt='TREERINGS (2) ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;tr&#47;treescountvisualessayelement&#47;TREERINGS2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='treescountvisualessayelement&#47;TREERINGS2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;tr&#47;treescountvisualessayelement&#47;TREERINGS2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1670551405624');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='827px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+</div>
+</div>
+
+
+
+<div class='text'>
+	<h1>Why have the diameters of street trees decreased?</h1>
+ During the census, the diameter at breast height (dbh) of trees is measured. The seven widest trees in the 2005 census in zip code 10002 with a diameter at breast height (dbh) from 33" to 43" were no longer standing in 2015 - due to the impact of storms or disease - a fact belied by the more than doubling of the total street trees in the zip code as a result of new planting. Efforts such as MillionTrees NYC increased the number of younger trees in NYC since 2007. The increased density of smaller trees in 2015 is apparent in the most common species comparison below. New plantings have resulted in the number of street trees with a (dbh) of 4" or less increasing by 190% between 2005 and 2015.<br><br>
+
+<!-- tableau public -->
+<div class='center_aligner'>
+	<!-- insert tableau public embed link below this line -->
+<div class='tableauPlaceholder' id='viz1669725286354' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TreesCountVEVersion&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TreesCountVEVersion&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TreesCountVEVersion&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1669725286354');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+
+// instantiate the scrollama
+const scroller = scrollama();
+const scroller2 = scrollama();
+
+scroller
+  .setup({
+    step: ".text",
+    offset: 0.9,
+  })
+  .onStepEnter(response => {
+    // { element, index, direction }
+    el=response.element;
+    el.style.opacity=1;
+    el.style.marginTop='5%';    
+  })
+  .onStepExit(response => {
+    // { element, index, direction }  
+    el=response.element;
+  })
+  ;
+ // setup resize event
+window.addEventListener("resize", scroller.resize);
+
+scroller2
+  .setup({
+    step: ".progressive",
+    offset: 0.6,
+  })
+  .onStepEnter(response => {
+    // { element, index, direction }
+    el=response.element;
+    el.style.opacity=1;
+    if(response.index==0 || 1 || 2){
+    	stick('dynamic_sticky1')
+    	response.direction=='down'
+    	if(response.index==0){
+    		count(1,119,1,'Increase','from 2005 to 2015','dynamic_sticky1')
+    	} else if (response.index==1){
+    		count(1,3.8,.1,'Story 2','average','dynamic_sticky1')
+    	} else if (response.index==2){
+    		count(0,0.9,.1,'Story 3','increase','dynamic_sticky1')
+    	}
+    }
+  })
+  .onStepExit(response => {
+    // { element, index, direction }  
+    el=response.element;
+    console.log(response.index)
+    if(response.index==2){
+    	unstick('dynamic_sticky1')
+    }
+    el.style.opacity=0;
+  })
+  ;
+ // setup resize event
+window.addEventListener("resize", scroller2.resize);
+
+function count(number1, number2, step, title, label, location_id, prefix='+', suffix='%'){
+	target = document.querySelector('#'+location_id)
+	console.log(target)
+	let text=number1;
+
+	setInterval(function(){
+		if(text!=number2){
+			num = text+step
+			if(num % 1 == 0){
+				text = num
+			} else {
+				text = parseFloat(num.toFixed(2))
+			}
+			target.innerHTML="<div class='aligner'><h1>"+title+"</h1><div id='counter'>"+prefix+text+suffix+"</div><h2>"+label+"</h2></div>"
+		}
+	}, 30);
+}
+
+function stick(location_id){
+	target = document.querySelector('#'+location_id)
+	target.style.position="sticky"
+}
+
+function unstick(location_id){
+	target = document.querySelector('#'+location_id)
+	target.style.position="relative"
+}
+
+</script>
+
+</html>
